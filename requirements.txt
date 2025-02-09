@@ -9,3 +9,4 @@ uvicorn==0.22.0
 Pillow==11.1.0 
 lxml==5.3.0
 PyPDF2==3.0.1
+opensearch-py==2.8.0

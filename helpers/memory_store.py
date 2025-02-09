@@ -13,11 +13,11 @@ class MemoryStore:
     def from_documents(cls, documents):
         embedding_model = OpenAIEmbeddings(model="text-embedding-ada-002")
         index = faiss.IndexFlatL2(1536)
-        docstore = InMemoryDocstore({})
+        docstore = InMemoryDocstore({})    # unlike openSearch, you need to manage storage of documents with index
         index_to_docstore_id = {}
         vector_store = FAISS(embedding_model, index, docstore, index_to_docstore_id)
 
-        vector_store.add_documents(documents)
+        vector_store.add_documents(documents)    
 
         return cls(vector_store)
 
